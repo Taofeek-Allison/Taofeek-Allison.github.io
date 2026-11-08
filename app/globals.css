@@ -8,8 +8,3 @@ body { background: #fff; color: #1e242b; }
 .project-card:hover { transform: translateY(-3px); border-color: #cfd5dc; box-shadow: 0 12px 30px rgba(20,30,40,.05); }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .project-card { transition: none; } .project-card:hover { transform: none; } }
-
-a:focus-visible, summary:focus-visible { outline: 2px solid #1e242b; outline-offset: 4px; border-radius: 4px; }
-details, dd, li, p { overflow-wrap: anywhere; }
-.contact-button { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid #e5e7eb; border-radius: .5rem; padding: .75rem 1.25rem; font-size: .875rem; font-weight: 600; }
-a.contact-button:hover { background: #f5f6f7; }

@@ -1,45 +1,45 @@
 # Mobile Engineer Portfolio
 
-Next.js, TypeScript and Tailwind CSS portfolio, statically exported to GitHub Pages.
+Minimal, responsive portfolio for a senior iOS and mobile engineer, featuring NEXT, Reiss, Victoria's Secret and ChartBuilder.
 
-## Edit content
+## Local development
 
-All editable professional copy, featured projects, skills, about text, contact settings and social metadata live in `src/content/site.ts`. Search that file for `{{TODO:` to find missing details. Existing short project summaries retain only previously confirmed experience; expanded ownership, dates, team and outcome fields are placeholders.
-
-- Fill in the project details and ChartBuilder migration case study. Add only metrics you can substantiate and details you can share publicly.
-- Each skill has an optional `usedOn` field. Replace it with verified evidence, or remove the field to hide its caption.
-- Replace `site.contact.linkedin` with an HTTPS profile URL to activate the LinkedIn link. Until then, the placeholder is visible plain text, not a broken link.
-- Set `site.contact.showGithub` to `false` to hide GitHub.
-- Drop your CV PDF into **`public/cv.pdf`**. The Download CV button points to `/cv.pdf` (with the repository base path where applicable). Until the file is supplied, that URL returns 404; no dummy CV is included.
-- `sideProjects` is empty and does not render. Uncomment the example and replace its fields to add a personal/open-source project. It uses the same typed model and card as Featured Work.
-- Replace `public/og-image-placeholder.png` with your final 1200 × 630 social image, or update `site.seo.image`. A working placeholder image is included.
-
-## Local development and export
-
-Use Node.js 22 and npm.
+Install Node.js 20+ then run:
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-Open http://localhost:3000. To verify the production export:
+Open http://localhost:3000.
 
-```bash
-npm run build
-python3 -m http.server 3000 --directory out
-```
+## Personalise before publishing
 
-Open http://localhost:3000 and check Read more with keyboard and touch, contact links, logos, and narrow layouts. `npm start` is not used for static exports.
+- In `app/page.tsx`, replace `hello@example.com`, `yourusername` and `yourprofile` with your actual contact details.
+- Update the displayed name, project descriptions and links. Reiss and Victoria's Secret have deliberately generic descriptions until your specific contributions are confirmed.
+- Replace the stylised project placeholders with screenshots you have permission to publish, if desired.
+- Optional: update the title and description in `app/layout.tsx`.
 
-## GitHub Pages
+## Deploy to GitHub Pages
 
-Every push to `main` runs `.github/workflows/deploy.yml`, builds the static export and deploys `out/`. Pages uses GitHub Actions as the source. The live user site is https://taofeek-allison.github.io/.
+1. Create a **public** GitHub repository, e.g. `portfolio`.
+2. Push these files to the repository's `main` branch:
 
-`next.config.ts` keeps `output: 'export'`, trailing slashes and unoptimised images. For the user-site repository there is no base path. For a project repository, Actions derives `basePath` and `assetPrefix` from its name; public assets, CV, icons and social metadata use the same prefix. To verify a project-path export locally:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial portfolio"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+   git push -u origin main
+   ```
 
-```bash
-GITHUB_ACTIONS=true GITHUB_REPOSITORY=Taofeek-Allison/portfolio npm run build
-```
+3. In the GitHub repository, go to **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source.
+4. Open the **Actions** tab to see the deployment progress. The site will be available at `https://YOUR_USERNAME.github.io/portfolio/` (assuming the repository is named `portfolio`).
+5. Every push to `main` triggers a new deployment.
 
-The workflow is unchanged. This site has no server routes or runtime data requirements.
+The Next.js config automatically adds the GitHub repository name as the base path in Actions for project sites, and omits it for `YOUR_USERNAME.github.io` user sites. `output: 'export'` makes the site compatible with static GitHub Pages hosting.
+
+## Tech
+
+Next.js, React, TypeScript, Tailwind CSS, Lucide icons, GitHub Actions, GitHub Pages.
