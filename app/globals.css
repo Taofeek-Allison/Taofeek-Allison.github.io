@@ -6,3 +6,5 @@ body { background: #fff; color: #1e242b; }
 ::selection { background: #e4ecff; }
 .project-card { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
 .project-card:hover { transform: translateY(-3px); border-color: #cfd5dc; box-shadow: 0 12px 30px rgba(20,30,40,.05); }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .project-card { transition: none; } .project-card:hover { transform: none; } }
