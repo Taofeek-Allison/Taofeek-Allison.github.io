@@ -13,28 +13,32 @@ const projects = [
     summary: 'Native iOS shopping experiences at scale, with a focus on product discovery, customer journeys and platform quality.',
     role: 'iOS engineering', tech: ['Swift', 'SwiftUI', 'iOS'],
     icon: ShoppingBag, initials: 'NEXT', tone: 'bg-[#f2f3f5] text-[#20252a]',
-    url: 'https://www.next.co.uk/',
+    iosUrl: 'https://apps.apple.com/gb/app/next-shop-fashion-beauty/id348364305',
+    androidUrl: 'https://play.google.com/store/apps/details?id=uk.co.next.android',
   },
   {
     number: '02', name: 'Reiss', category: 'Premium fashion',
     summary: 'Mobile retail experience within a portfolio of consumer-facing fashion applications.',
     role: 'Mobile app portfolio', tech: ['Mobile', 'Retail'],
     icon: ShoppingBag, initials: 'REISS', tone: 'bg-[#eeede9] text-[#393a37]',
-    url: 'https://www.reiss.com/',
+    iosUrl: 'https://apps.apple.com/gb/app/reiss/id1605795159',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.reiss.android',
   },
   {
     number: '03', name: "Victoria’s Secret", category: 'Retail & commerce',
     summary: 'Consumer shopping experience focused on presenting products and supporting customer journeys.',
     role: 'Mobile app portfolio', tech: ['Mobile', 'Retail'],
     icon: Smartphone, initials: 'VS', tone: 'bg-[#f8edf1] text-[#7b455c]',
-    url: 'https://www.victoriassecret.com/',
+    iosUrl: 'https://apps.apple.com/gb/app/victorias-secret-uk-ireland/id1584656006',
+    androidUrl: null,
   },
   {
     number: '04', name: 'ChartBuilder', category: 'Music & productivity',
     summary: 'Cross-platform tools for musicians, including setlists, music charts and offline-first workflows.',
     role: 'Cross-platform engineering', tech: ['C#', '.NET MAUI', 'Xamarin'],
     icon: Music2, initials: 'CB', tone: 'bg-[#eaf0ed] text-[#385b50]',
-    url: 'https://www.multitracks.com/',
+    iosUrl: 'https://apps.apple.com/gb/app/multitracks-com-chartbuilder/id1208264687',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.multitracks.chartbuilder',
   },
 ];
 
@@ -83,9 +87,13 @@ export default function Home() {
                   <span className="absolute bottom-5 right-6 text-xs font-medium opacity-60">{project.category}</span>
                 </div>
                 <div className="p-6 sm:p-7">
-                  <div className="flex items-start justify-between gap-4"><h3 className="text-2xl font-semibold tracking-tight">{project.name}</h3><a href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.name} website`} className="rounded-full border border-line p-2 hover:bg-paper"><ArrowUpRight size={18} /></a></div>
+                  <h3 className="text-2xl font-semibold tracking-tight">{project.name}</h3>
                   <p className="mt-3 min-h-[72px] text-sm leading-6 text-muted">{project.summary}</p>
                   <div className="mt-5 flex flex-wrap gap-2">{project.tech.map((tag) => <span key={tag} className="rounded-full bg-paper px-3 py-1.5 text-xs font-medium text-[#616a74]">{tag}</span>)}</div>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a href={project.iosUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} on the Apple App Store`} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-ink px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#39424d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">iOS <ArrowUpRight size={16} aria-hidden="true" /></a>
+                    {project.androidUrl ? <a href={project.androidUrl} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} on Google Play`} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-line px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">Android <ArrowUpRight size={16} aria-hidden="true" /></a> : <span className="inline-flex min-h-11 items-center rounded-lg border border-line px-4 py-2.5 text-sm text-muted">Android link pending</span>}
+                  </div>
                 </div>
               </article>
             );
