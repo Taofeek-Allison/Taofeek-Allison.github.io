@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowUpRight, Github, Mail, Smartphone, Music2, ShoppingBag } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Github, Mail, ShoppingBag } from 'lucide-react';
 
 const profile = {
   name: 'Taofeek Allison',
@@ -27,7 +27,7 @@ const projects = [
     number: '03', name: "Victoria’s Secret", category: 'Retail & commerce',
     summary: 'Native iOS development using Swift for the Victoria’s Secret UK & Ireland app.',
     role: 'Mobile app portfolio', tech: ['Swift', 'Native iOS'],
-    icon: Smartphone, initials: 'VS', tone: 'bg-[#f8edf1] text-[#7b455c]',
+    icon: ShoppingBag, logo: '/victorias-secret.jpg', initials: 'VS', tone: 'bg-[#f8edf1] text-[#7b455c]',
     iosUrl: 'https://apps.apple.com/gb/app/victorias-secret-uk-ireland/id1584656006',
     androidUrl: null,
   },
@@ -35,7 +35,7 @@ const projects = [
     number: '04', name: 'ChartBuilder', category: 'Music & productivity',
     summary: 'Worked on the transition from Xamarin.Forms to .NET MAUI for ChartBuilder, a cross-platform music charts and rehearsal app.',
     role: 'Cross-platform engineering', tech: ['C#', '.NET MAUI', 'Xamarin.Forms'],
-    icon: Music2, initials: 'CB', tone: 'bg-[#eaf0ed] text-[#385b50]',
+    icon: ShoppingBag, logo: '/chartbuilder.jpg', initials: 'CB', tone: 'bg-[#eaf0ed] text-[#385b50]',
     iosUrl: 'https://apps.apple.com/gb/app/multitracks-com-chartbuilder/id1208264687',
     androidUrl: 'https://play.google.com/store/apps/details?id=com.multitracks.chartbuilder',
     windowsUrl: 'https://apps.microsoft.com/detail/9n273hxg574z',
@@ -84,7 +84,7 @@ export default function Home() {
                 <div className={`relative flex h-56 items-center justify-center sm:h-64 ${project.tone}`}>
                   <span className="absolute left-6 top-6 text-xs font-semibold tracking-widest opacity-60">{project.number} / 04</span>
                   <div className="flex h-28 w-28 items-center justify-center rounded-[1.7rem] border border-current/10 bg-white/65 shadow-sm">
-                    {project.name === 'NEXT' || project.name === 'Reiss' ? <span className="text-2xl font-bold tracking-tight">{project.initials}</span> : <Icon size={46} strokeWidth={1.35} />}
+                    {'logo' in project ? <img src={project.logo} alt={`${project.name} app logo`} width={112} height={112} className="h-full w-full rounded-[1.7rem] object-cover" /> : project.name === 'NEXT' || project.name === 'Reiss' ? <span className="text-2xl font-bold tracking-tight">{project.initials}</span> : <Icon size={46} strokeWidth={1.35} />}
                   </div>
                   <span className="absolute bottom-5 right-6 text-xs font-medium opacity-60">{project.category}</span>
                 </div>
