@@ -32,7 +32,15 @@ const projects = [
     androidUrl: null,
   },
   {
-    number: '04', name: 'ChartBuilder', category: 'Music & productivity',
+    number: '04', name: 'MADE', category: 'Furniture & homeware',
+    summary: 'Native iOS development using Swift and SwiftUI for the MADE app.',
+    role: 'iOS engineering', tech: ['Swift', 'SwiftUI', 'Native iOS'],
+    logo: '/made.jpg', initials: 'MADE', tone: 'bg-[#f2f1ee] text-[#30332e]',
+    iosUrl: 'https://apps.apple.com/gb/app/made/id1445414950',
+    androidUrl: null,
+  },
+  {
+    number: '05', name: 'ChartBuilder', category: 'Music & productivity',
     summary: 'Worked on the transition from Xamarin.Forms to .NET MAUI for ChartBuilder, a cross-platform music charts and rehearsal app.',
     role: 'Cross-platform engineering', tech: ['C#', '.NET MAUI', 'Xamarin.Forms'],
     logo: '/chartbuilder.jpg', initials: 'CB', tone: 'bg-[#eaf0ed] text-[#385b50]',
@@ -69,7 +77,7 @@ export default function Home() {
 
       <section id="work" className="scroll-mt-12 border-t border-line py-16 sm:py-20">
         <div className="mb-10 flex items-end justify-between gap-4">
-          <div><p className="mb-3 text-xs font-semibold uppercase tracking-[.2em] text-muted">Portfolio</p><h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Featured work<span className="text-[#a1a7ad]"> (04)</span></h2></div>
+          <div><p className="mb-3 text-xs font-semibold uppercase tracking-[.2em] text-muted">Portfolio</p><h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Featured work<span className="text-[#a1a7ad]"> ({String(projects.length).padStart(2, '0')})</span></h2></div>
           <p className="hidden max-w-xs text-right text-sm leading-6 text-muted sm:block">A selection of mobile products and teams I’ve worked with.</p>
         </div>
         <div className="grid gap-5 md:grid-cols-2">
@@ -77,7 +85,7 @@ export default function Home() {
             return (
               <article key={project.number} className="project-card overflow-hidden rounded-2xl border border-line">
                 <div className={`relative flex h-56 items-center justify-center sm:h-64 ${project.tone}`}>
-                  <span className="absolute left-6 top-6 text-xs font-semibold tracking-widest opacity-60">{project.number} / 04</span>
+                  <span className="absolute left-6 top-6 text-xs font-semibold tracking-widest opacity-60">{project.number} / {String(projects.length).padStart(2, '0')}</span>
                   <div className="flex h-28 w-28 items-center justify-center rounded-[1.7rem] border border-current/10 bg-white/65 shadow-sm">
                     <img src={project.logo} alt={`${project.name} app logo`} width={112} height={112} className="h-full w-full rounded-[1.7rem] object-cover" />
                   </div>
@@ -116,7 +124,7 @@ export default function Home() {
 
       <section id="about" className="grid scroll-mt-12 gap-6 border-t border-line py-16 sm:grid-cols-[1fr_2fr] sm:gap-8 sm:py-20">
         <div><p className="mb-3 text-xs font-semibold uppercase tracking-[.2em] text-muted">About</p><h2 className="text-3xl font-semibold tracking-tight">Hi, I’m Taofeek.</h2></div>
-        <p className="max-w-2xl text-lg leading-8 text-muted">I’m a Senior Mobile Engineer working across native iOS and cross-platform development. My experience spans retail applications including NEXT, Reiss and Victoria’s Secret, and music software with ChartBuilder. I bring hands-on experience with Swift and .NET MAUI to production mobile products.</p>
+        <p className="max-w-2xl text-lg leading-8 text-muted">I’m a Senior Mobile Engineer working across native iOS and cross-platform development. My experience spans retail applications including NEXT, Reiss, Victoria’s Secret and MADE, and music software with ChartBuilder. I bring hands-on experience with Swift and .NET MAUI to production mobile products.</p>
       </section>
 
       <section id="contact" className="scroll-mt-12 border-t border-line py-20 sm:py-24">
